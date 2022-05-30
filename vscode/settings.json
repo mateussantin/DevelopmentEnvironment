@@ -1,0 +1,105 @@
+{
+    // Define o tema do VSCode
+    "workbench.colorTheme": "Dracula",
+    
+    // Configura tamanho e familia da fonta
+    "editor.fontSize": 14,
+    "editor.lineHeight": 24,
+    "editor.fontLigatures": true,
+
+    //oculta barra de navegacao
+    // "window.menuBarVisibility": "toggle",
+
+    // editor config
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "files.maxMemoryForLargeFilesMB": 8096,
+
+    // APlica linhas verticais para lembrar de quebrar a linha em códigos muito grandes
+    "editor.rulers": [
+        90,
+        120
+    ],
+
+    // Aplica um sinal visual na esquerda da linha selecionada
+    "editor.renderLineHighlight": "gutter", 
+
+    // Aumenta a fonte do terminal
+    "terminal.integrated.fontSize": 14,
+
+    // Define o tema dos icones na sidebar
+    "workbench.iconTheme": "material-icon-theme",
+
+    // git
+    "git.enableSmartCommit": true,
+    "git.ignoreWindowsGit27Warning": true,
+
+    // autosave
+    "files.autoSave": "off",
+
+    // Exclui a pasta node_modules
+    "files.exclude": {
+        "**/.git": true,
+        "**/.github": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/COPYING.txt": true,
+        "**/LICENSE.txt": true,
+        "**/LICENSE_AFL.txt": true,
+        "**/SECURITY.md": true,
+        "**/CHANGELOG.md": true,
+        "**/.docker": true,
+        "**/.deploy": true,
+        "**/.magento": true
+    },
+
+    "files.associations": {
+        ".sequelizerc": "javascript",
+        ".stylelintrc": "json",
+        ".prettierrc": "json",
+        "*.tsx": "typescriptreact"
+    },
+
+    // others
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true
+    },
+
+    // eslint
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": ["javascript"],
+    "eslint.alwaysShowStatus": true,
+    "eslint.options": {
+        "eslint brace-style": [
+            "error",
+            "allman",
+            {
+                "allowSingleLine": true
+            }
+        ]
+    },
+    "eslint.codeAction.showDocumentation": {
+        "enable": true
+    },
+    "eslint.format.enable": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "emmet.syntaxProfiles": { "javascript": "jsx" },
+    "emmet.includeLanguages": { "javascript": "javascriptreact" },
+    "javascript.suggest.autoImports": true,
+    "typescript.suggest.autoImports": true
+}

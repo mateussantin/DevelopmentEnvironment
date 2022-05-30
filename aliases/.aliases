@@ -14,3 +14,6 @@ alias g-s='git status'
 alias g-c='git checkout .'
 alias g-cb='git checkout -b'
 alias g-p='git push'
+
+# git branch name in terminal
+export PS1='\u\[\033[01;34m\] \w\[\033[0;32m\]$(__git_ps1 " (%s)")\[\033[01;34m\]$\[\033[00m\] '

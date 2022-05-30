@@ -6,7 +6,7 @@ echo "$(tput setaf 7)
 ######################
 $(tput sgr 0)"
 
-aliases(){
+_aliases(){
     clear
     echo "Add Aliases? y/n"
     read aliases
@@ -23,20 +23,36 @@ aliases(){
     fi
 }
 
-system(){
+_system(){
     clear
-    echo "$(tput setaf 3)inserir aqui oq vai ser adicionado... $(tput sgr 0)"
+    echo "$(tput setaf 3)
+    It will be installed
+    1. Dark theme for Terminal;
+    $(tput sgr 0)"
+    
     echo "Add System Settings? y/n"
     read system
     if [ $system = "y" ]
+        cd ~/Downloads
+        git clone https://github.com/dracula/terminal-app.git
     then
         echo "$(tput setaf 2)System Settings added! $(tput sgr 0)"
+
+        echo "$(tput setaf 2)
+        Activating theme
+
+        Terminal > Settings Tab
+        Click 'Gear' icon
+        Click Import...
+        Select the Dracula.terminal file
+        Click Default
+        $(tput sgr 0)"
     else
         echo "$(tput setaf 5)Not added System Settings! $(tput sgr 0)"
     fi
 }
 
-devilbox(){
+_devilbox(){
     clear
     echo "Install Devilbox and its dependencies? y/n"
     read devilbox
@@ -95,7 +111,7 @@ devilbox(){
     echo "$(tput setaf 2)Installation Completed! $(tput sgr 0)"
 }
 
-vscode(){
+_vscode(){
     clear
     echo "Add Vscode repository? y/n"
     read vscode
@@ -108,12 +124,16 @@ vscode(){
     else
         echo "$(tput setaf 5)Not added Repository Vscode! $(tput sgr 0)"
     fi
-    echo "$(tput setaf 7)Installing Vscode! $(tput sgr 0)"
+    echo "$(tput setaf 2)Installing Vscode! $(tput sgr 0)"
     sudo apt -y install code
-    echo "$(tput setaf 2)Vscode installed! $(tput sgr 0)"
+
+    echo "$(tput setaf 2)installing settings Vscode! $(tput sgr 0)"
+    cd ~/.config/Code/User/
+    wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/vscode/settings.json
+    echo "$(tput setaf 2)Vscode installed and Configured! $(tput sgr 0)"
 }
 
-chrome(){
+_chrome(){
     clear
     echo "Add Google Chrome? y/n"
     read chrome
@@ -126,12 +146,12 @@ chrome(){
     else
         echo "$(tput setaf 5)Not added Google Chrome! $(tput sgr 0)"
     fi
-    echo "$(tput setaf 7)Installing Google Chrome! $(tput sgr 0)"
+    echo "$(tput setaf 2)Installing Google Chrome! $(tput sgr 0)"
     sudo apt -y install google-chrome-stable
     echo "$(tput setaf 2)Google Chrome installed! $(tput sgr 0)"
 }
 
-mozilla(){
+_mozilla(){
     clear
     echo "Add Mozilla Firefox? y/n"
     read mozilla
@@ -145,7 +165,7 @@ mozilla(){
     fi
 }
 
-discord(){
+_discord(){
     clear
     echo "Add Discord? y/n"
     read discord
@@ -159,7 +179,7 @@ discord(){
     fi
 }
 
-insomnia(){
+_insomnia(){
     clear
     echo "Add Insomnia? y/n"
     read insomnia
@@ -173,7 +193,7 @@ insomnia(){
     fi
 }
 
-filezilla(){
+_filezilla(){
     clear
     echo "Add Filezilla? y/n"
     read filezilla
@@ -187,7 +207,7 @@ filezilla(){
     fi
 }
 
-termius(){
+_termius(){
     clear
     echo "Add Termius? y/n"
     read termius
@@ -201,11 +221,11 @@ termius(){
     fi
 }
 
-git(){
+_git(){
     clear
     echo "Add Git? y/n"
-    read git
-    if [ $git = "y" ]
+    read gitApp
+    if [ $gitApp = "y" ]
     then
         sudo apt install git
         sudo apt update
@@ -246,37 +266,37 @@ $(tput sgr 0)"
 read apps
 case "$apps" in
     a|A)
-        aliases
+        _aliases
     ;;
     s|S)
-        system
+        _system
     ;;
     l|L)
-        devilbox
+        _devilbox
     ;;
     v|V)
-        vscode
+        _vscode
     ;;
     c|C)
-        chrome
+        _chrome
     ;;
     m|M)
-        mozilla
+        _mozilla
     ;;
     d|D)
-        discord
+        _discord
     ;;
     i|I)
-        insomnia
+        _insomnia
     ;;
     f|F)
-        filezilla
+        _filezilla
     ;;
     t|T)
-        termius
+        _termius
     ;;
     g|G)
-        git
+        _git
     ;;
     e|E)
         clear
