@@ -1,0 +1,38 @@
+{
+	"m2-copy": {
+		"prefix": "m2-copy",
+		"body": [			
+			"<!--",
+			"/**",
+			"* Copyright © Hibrido. All rights reserved.",
+			"* https://www.hibrido.com.br/",
+			"*/",
+			"-->"
+		],
+		"description": "Copyright for Devs"
+	},
+
+	"m2-move": {
+		"prefix": "m2-move",
+		"body": [			
+			"<move element=\"$1\" destination=\"\" before=\"-\" />"
+		],
+		"description": "Magento 2 move block xml"
+	},
+
+	"m2-remove": {
+		"prefix": "m2-remove",
+		"body": [			
+			"<referenceBlock name=\"$1\" remove=\"true\" />"
+		],
+		"description": "Magento 2 remove block xml"
+	},
+
+	"m2-create-block": {
+		"prefix": "m2-create-block",
+		"body": [			
+			"<block class=\"Magento\\Framework\\View\\Element\\Template\" name=\"$1\" template=\"Magento_Customer::name.phtml\" />"
+		],
+		"description": "Magento 2 create block xml"
+	}
+}

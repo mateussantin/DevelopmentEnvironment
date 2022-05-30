@@ -1,0 +1,22 @@
+{
+	"m2-copy": {
+		"prefix": "m2-copy",
+		"body": [			
+			"/**",
+			" * Copyright © Hibrido. All rights reserved.",
+			" * https://www.hibrido.com.br/",
+			" */"
+		],
+		"description": "Copyright for Devs"
+	},
+
+	"m2-comments": {
+		"prefix": "m2-comments",
+		"body": [			
+			"//",
+			"// $1",
+			"// _____________________________________________"
+		],
+		"description": "Comments"
+	}
+}

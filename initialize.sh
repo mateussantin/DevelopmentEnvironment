@@ -27,26 +27,47 @@ _system(){
     clear
     echo "$(tput setaf 3)
     It will be installed
-    1. Dark theme for Terminal;
+    1. Dark theme for terminal;
+    2. Gedit editor;
+    3. Zip and Unzip;
+    4. Tar-xz compactor;
+    5. Curl;
+    6. Wget;
     $(tput sgr 0)"
     
     echo "Add System Settings? y/n"
     read system
     if [ $system = "y" ]
+    then
+        echo "$(tput setaf 2)Installing Dracula Theme! $(tput sgr 0)"
         cd ~/Downloads
         git clone https://github.com/dracula/terminal-app.git
-    then
-        echo "$(tput setaf 2)System Settings added! $(tput sgr 0)"
-
         echo "$(tput setaf 2)
         Activating theme
 
         Terminal > Settings Tab
         Click 'Gear' icon
         Click Import...
-        Select the Dracula.terminal file
+        Select the Dracula.terminal file / in Downloads
         Click Default
         $(tput sgr 0)"
+
+        echo "$(tput setaf 2)Installing Gedit Editor! $(tput sgr 0)"
+        sudo apt install gedit
+        sudo apt update
+
+        echo "$(tput setaf 2)Installing Zip and Unzip! $(tput sgr 0)"
+        apt-get install zip unzip
+        sudo apt update
+
+        echo "$(tput setaf 2)Installing Tar-xz compactor! $(tput sgr 0)"
+        sudo apt-get install xz-utils
+        sudo apt update
+
+        sudo apt install \ curl \ wget
+        sudo apt update
+
+        echo "$(tput setaf 2)System Settings added! $(tput sgr 0)"
     else
         echo "$(tput setaf 5)Not added System Settings! $(tput sgr 0)"
     fi
@@ -63,52 +84,50 @@ _devilbox(){
         "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
         $(lsb_release -cs) \
         stable"
+
         echo "$(tput setaf 2)Devilbox added! $(tput sgr 0)"
+        sudo apt update
+
+        echo "$(tput setaf 2)Install Docker! $(tput sgr 0)"
+        apt-cache policy docker-ce
+        sudo apt install docker-ce
+
+        echo "$(tput setaf 2)Applying user Docker permission! $(tput sgr 0)"
+        sudo usermod -aG docker ${USER}
+
+        echo "$(tput setaf 2)Install docker-compose! $(tput sgr 0)"
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+
+        echo "$(tput setaf 2)Install Devilbox! $(tput sgr 0)"
+        cd ~
+        git clone https://github.com/cytopia/devilbox.git
+        
+        cd ~/devilbox/
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/.env
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/docker-compose.override.yml
+        
+        cd ~/devilbox/bash/
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/bash/aliases.sh
+        
+        cd ~/devilbox/autostart/
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/autostart/autostart.sh
+        
+        cd ~/devilbox/cfg/php-fpm-7.4/
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/cfg/php-fpm-x.x/mailhog.ini
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/cfg/php-fpm-x.x/memory_limit.ini
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/cfg/php-fpm-x.x/www_server.conf
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/cfg/php-fpm-x.x/xdebug.ini
+        
+        cd ~/devilbox/cfg/php-ini-7.4/
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/cfg/php-ini-x.x/memory_limit.ini
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/cfg/php-ini-x.x/timeouts.ini
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/cfg/php-ini-x.x/xdebug.ini
+        
+        echo "$(tput setaf 2)Devilbox installed and configured! $(tput sgr 0)"
     else
         echo "$(tput setaf 5)Not added Devilbox! $(tput sgr 0)"
     fi
-
-    sudo apt update
-
-    echo "$(tput setaf 2)Install Docker! $(tput sgr 0)"
-    apt-cache policy docker-ce
-    sudo apt install docker-ce
-
-    echo "$(tput setaf 2)Applying user Docker permission! $(tput sgr 0)"
-    sudo usermod -aG docker ${USER}
-
-    echo "$(tput setaf 2)Install docker-compose! $(tput sgr 0)"
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
-
-    echo "$(tput setaf 2)Install Devilbox! $(tput sgr 0)"
-    cd ~
-    git clone https://github.com/cytopia/devilbox.git
-    
-    cd ~/devilbox/
-    wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/.env
-    wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/docker-compose.override.yml
-    mkdir sh
-    
-    cd ~/devilbox/sh
-    wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/sh/docker-entrypoint-es.sh
-    
-    cd ~/devilbox/bash/
-    wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/bash/aliases.sh
-    
-    cd ~/devilbox/autostart/
-    wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/autostart/autostart.sh
-    
-    cd ~/devilbox/cfg/php-fpm-7.3/
-    wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/cfg/php-fpm-x.x/www_server.conf
-    
-    cd ~/devilbox/cfg/php-ini-7.3/
-    wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/cfg/php-ini-x.x/memory_limit.ini
-    wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/cfg/php-ini-x.x/timeouts.ini
-    wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/devilbox/cfg/php-ini-x.x/xdebug.ini
-    
-    cd ~/devilbox/
-    echo "$(tput setaf 2)Installation Completed! $(tput sgr 0)"
 }
 
 _vscode(){
@@ -120,17 +139,27 @@ _vscode(){
         wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add --
         sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
         sudo apt update
-        echo "$(tput setaf 2)Vscode repository added! $(tput sgr 0)"
+        
+        echo "$(tput setaf 2)Installing Vscode! $(tput sgr 0)"
+        sudo apt -y install code
+        echo "$(tput setaf 2)installing settings Vscode! $(tput sgr 0)"
+        
+        cd ~/.config/Code/User/
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/vscode/settings.json
+
+        cd ~/.config/Code/User/
+        mkdir snippets
+        cd ~/.config/Code/User/snippets
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/snippets/css.json
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/snippets/javascript.json
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/snippets/less.json
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/snippets/php.json
+        wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/snippets/xml.json
+ 
+        echo "$(tput setaf 2)Vscode installed and configured! $(tput sgr 0)"
     else
         echo "$(tput setaf 5)Not added Repository Vscode! $(tput sgr 0)"
     fi
-    echo "$(tput setaf 2)Installing Vscode! $(tput sgr 0)"
-    sudo apt -y install code
-
-    echo "$(tput setaf 2)installing settings Vscode! $(tput sgr 0)"
-    cd ~/.config/Code/User/
-    wget -c https://raw.githubusercontent.com/mateussantin/DevelopmentEnvironment/main/vscode/settings.json
-    echo "$(tput setaf 2)Vscode installed and Configured! $(tput sgr 0)"
 }
 
 _chrome(){
@@ -142,13 +171,14 @@ _chrome(){
         wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
         sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
         sudo apt update
-        echo "$(tput setaf 2)Google Chrome added! $(tput sgr 0)"
+
+        echo "$(tput setaf 2)Installing Google Chrome! $(tput sgr 0)"
+        sudo apt -y install google-chrome-stable
+
+        echo "$(tput setaf 2)Google Chrome installed! $(tput sgr 0)"
     else
         echo "$(tput setaf 5)Not added Google Chrome! $(tput sgr 0)"
     fi
-    echo "$(tput setaf 2)Installing Google Chrome! $(tput sgr 0)"
-    sudo apt -y install google-chrome-stable
-    echo "$(tput setaf 2)Google Chrome installed! $(tput sgr 0)"
 }
 
 _mozilla(){
@@ -251,7 +281,7 @@ _git(){
 echo -n "$(tput setaf 7)
 What you want to install
     (A) Aliases
-    (S) System Settings
+    (S) System Settings (Prerequisites)
     (L) DevilBox
     (V) Vscode
     (C) Chrome

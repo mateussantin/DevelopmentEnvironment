@@ -1,0 +1,21 @@
+{
+	"m2-copy": {
+		"prefix": "m2-copy",
+		"body": [			
+			"/**",
+			" * Copyright © Hibrido. All rights reserved.",
+			" * See COPYING.txt for license details.",
+			" * https://www.hibrido.com.br/",
+			" */"
+		],
+		"description": "Copyright for Devs"
+	},
+
+	"m2-var-dump": {
+		"prefix": "m2-var-dump",
+		"body": [
+			"var_dump($$1);"
+		],
+		"description": "Magento var_dump"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"m2-copy": {
+		"prefix": "m2-copy",
+		"body": [			
+			"/**",
+			" * Copyright © Hibrido. All rights reserved.",
+			" * https://www.hibrido.com.br/",
+			" */"
+		],
+		"description": "Copyright for Devs"
+	},
+	
+	"js-console": {
+		"prefix": "js-console",
+		"body": [			
+			"console.log($1);"
+		],
+		"description": "Console log"
+	}
+}
