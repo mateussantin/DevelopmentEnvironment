@@ -1,0 +1,16 @@
+# configs aliases
+alias aliasedit='gedit ~/.aliases'
+alias cls='clear'
+
+# devilbox
+alias dev-all='cd ~/devilbox && ./shell.sh'
+alias dev-up='cd ~/devilbox && docker-compose up -d httpd php mysql bind redis elastic && ./shell.sh'
+alias dev-down='cd ~/devilbox && docker-compose stop && docker-compose rm -f && docker-compose down'
+
+# git
+alias g-a='git add'
+alias g-all='git add .'
+alias g-s='git status'
+alias g-c='git checkout .'
+alias g-cb='git checkout -b'
+alias g-p='git push'
