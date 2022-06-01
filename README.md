@@ -41,4 +41,4 @@ Select what you want to install, type the letter corresponding to the option and
 ```
 
 ### Screenshot of options in terminal
-![ScreenShot](https://github.com/mateussantin/mateussantin/DevelopmentEnvironment/blob/main/screenshot/options.png)
+![ScreenShot](https://github.com/mateussantin/DevelopmentEnvironment/blob/main/screenshot/options.png)
