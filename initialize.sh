@@ -284,7 +284,7 @@ What you want to install
     (S) System Settings (Prerequisites)
     (L) DevilBox
     (V) Vscode
-    (C) Chrome
+    (C) Google Chrome
     (M) Mozilla Firefox
     (D) Discord
     (I) Insomnia
